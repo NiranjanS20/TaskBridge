@@ -1,4 +1,4 @@
-# TaskBridge (VASAE)
+# TaskBridge 
 
 TaskBridge (also known as VASAE - Volunteer Allocation System and AI Engine) is an AI-powered NGO resource allocation system. It is designed to intelligently match volunteers to tasks based on complex scoring mechanisms while maintaining fairness, preventing burnout, and providing full explainability.
 
