@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem; /* xl mapped from Stitch */
+    --background: 226 100% 98%; /* f8f9ff */
+    --foreground: 213 60% 12%; /* 0b1c30 */
+    --card: 0 0% 100%; /* ffffff lowest */
+    --card-foreground: 213 60% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 60% 12%;
+    --primary: 217 100% 31%; /* 003c9d */
+    --primary-foreground: 0 0% 100%; /* ffffff */
+    --secondary: 218 100% 95%; /* e5eeff */
+    --secondary-foreground: 217 100% 31%;
+    --muted: 219 100% 96%; /* eff4ff */
+    --muted-foreground: 226 11% 30%; /* 434654 */
+    --accent: 228 100% 91%; /* dae1ff */
+    --accent-foreground: 217 100% 31%; /* 003c9d */
+    --destructive: 0 74% 41%; /* ba1a1a */
+    --destructive-foreground: 0 0% 100%; /* ffffff */
+    --border: 227 25% 81%; /* c3c6d6 */
+    --input: 227 25% 81%; /* c3c6d6 */
+    --ring: 217 100% 40%; /* 0051ce primary container */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+@layer utilities {
+  .ambient-shadow {
+    box-shadow: 0 4px 32px rgba(11, 28, 48, 0.05);
+  }
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px);
+  }
+}
