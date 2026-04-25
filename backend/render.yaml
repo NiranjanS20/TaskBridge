@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: taskbridge-backend
+    env: docker
+    rootDir: backend
+    dockerfilePath: Dockerfile
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SECRET_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        value: "https://your-frontend-domain.vercel.app"
+
