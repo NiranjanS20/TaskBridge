@@ -96,3 +96,4 @@ Detailed architectural documents are located in the `docs/` directory:
 
 ## 🚀 Deployment
 Deployment configurations are available in the `infra/` folder, including `docker-compose.yml` for containerized setups, `render.yaml` for backend deployment on Render, and `vercel.json` for frontend deployment on Vercel.
+Shaaunak 
