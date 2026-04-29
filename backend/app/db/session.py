@@ -4,7 +4,7 @@ VASAE Database Session
 Async engine + session factory.
 Provides the get_db dependency for FastAPI route injection.
 """
-
+import os
 from sqlalchemy.ext.asyncio import (
     AsyncSession,
     async_sessionmaker,
@@ -18,12 +18,23 @@ from app.utils.logger import get_logger
 logger = get_logger(__name__)
 settings = get_settings()
 
+DATABASE_URL = settings.DATABASE_URL
+
+# Render/Supabase compatibility fix
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
+# Async driver fix
+if DATABASE_URL.startswith("postgresql://") and "+asyncpg" not in DATABASE_URL:
+    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+asyncpg://", 1)
+
 # --- Engine ---
 # echo=True in debug mode for SQL tracing
 engine = create_async_engine(
-    settings.DATABASE_URL,
+    DATABASE_URL,
     echo=settings.DEBUG,
     future=True,
+    connect_args={"ssl": "require"},
 )
 
 # --- Session Factory ---
